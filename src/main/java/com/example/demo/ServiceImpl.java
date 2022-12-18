@@ -17,13 +17,13 @@ public class ServiceImpl {
 			pro *= a[i];
 			i++;
 		}
-//		List<Double> list = dto.getList();
-//		i = 0;
-//		while(i<list.size())
-//		{
-//			pro *= list.get(i);
-//			i++;
-//		}
+		List<Double> list = dto.getList();
+		i = 0;
+		while(i<list.size())
+		{
+			pro *= list.get(i);
+			i++;
+		}
 		return pro;
 	}
 
