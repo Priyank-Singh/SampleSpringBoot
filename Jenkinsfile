@@ -1,39 +1,19 @@
-pipeline {
+ node{
 
-    agent any
+   stage('SCM Checkout'){
 
-    stages {
+     git 'https://github.com/abhisheknegi941/javaprojects'
 
-        stage('Build') {
+   }
 
-            steps {
+   stage('Compile-Package'){
 
-                echo 'Build sucessed'
+     // Get maven home path
 
-            }
+     def mvnHome = tool name: 'Apache Maven 3.6.3', type: 'maven'
 
-        }
+    bat "${mvnHome}/bin/mvn package"
 
-        stage('Test') {
+  }
 
-            steps {
-
-                echo 'Test sucessed'
-
-            }
-
-        }
-
-        stage('Deploy') {
-
-            steps {
-
-                echo 'deploy sucessed'
-
-            }
-
-        }
-
-    }
-
-}
+ }
